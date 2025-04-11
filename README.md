@@ -37,19 +37,85 @@ Diff = A ⊕ B ⊕ Bin
 Borrow out = A'Bin + A'B + BBin
 
 **Truthtable**
+### FULL ADDER
+![image](https://github.com/user-attachments/assets/5e3486b4-8d0e-438e-9bea-93cba27e24b9)
 
-**Procedure**
+### FULL SUBTRACTOR
+![image](https://github.com/user-attachments/assets/bf0954ef-e8db-414a-a9f9-92530d5779e0)
 
-Write the detailed procedure here
+## Procedure
+
+1.Open Quartus Software.
+
+2.Create a New Project.
+
+3.Create a New Design File.
+
+4.Compile the Program.
+
+5.Generate RTL Schematic.
+
+6.Create Nodes for Inputs/Outputs
+
+7.Generate Timing Diagram
+
+8.Simulate Different Input Combinations
+
+9.Save Your Work
+
 
 **Program:**
 
-/* Program to design a half subtractor and full subtractor circuit and verify its truth table in quartus using Verilog programming. Developed by: RegisterNumber:
-*/
+/* Program to design a half subtractor and full subtractor circuit and verify its truth table in quartus using Verilog programming.
+```
+Developed by: MOHANRAJ R
+RegisterNumber:212224230169
+```
+FULL ADDER
+```
+module fa1_df(sum, cout, a, b, cin);
+    output sum;
+    output cout;
+    input a;
+    input b;
+    input cin;
 
-**RTL Schematic**
+	 wire w1,w2,w3;
+	 assign w1=a^b;
+	 assign w2=a&b;
+	 assign w3=w1&cin;
+	 assign sum=w1^cin;
+	 assign cout=w2|w3;
+endmodule
+```
+FULL SUBTRACTOR
+```
+module fullsub(df, bo, a, b, bin);
+    output df;
+    output bo;
+    input a;
+    input b;
+    input bin;
+	wire w1,w2,w3;
+	 assign w1=a^b;
+	 assign w2=(~a&b);
+	 assign w3=(~w1&bin);
+	 assign df=w1^bin;
+	 assign bo=w2|w3;
+
+endmodule
+```
+
+## RTL Schematic
+### FULL_ADDER
+![Screenshot 2025-04-11 134429](https://github.com/user-attachments/assets/3ff00ed4-4602-4177-b2c6-db3621b9ab11)
+### FULL_SUBTRACTOR
+![Screenshot 2025-04-11 134437](https://github.com/user-attachments/assets/ae4c59b3-5c17-40d9-87ee-339947e1058d)
+
 
 **Output Timing Waveform**
+![Screenshot 2025-04-11 134548](https://github.com/user-attachments/assets/926bb21d-3637-4db3-a43a-80e95e790756)
+![Screenshot 2025-04-11 134525](https://github.com/user-attachments/assets/96e41934-f130-4b46-85d0-3841be976fff)
 
 **Result:**
 
